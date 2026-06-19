@@ -1,12 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Red_Rose,
+  Zen_Dots,
+  Architects_Daughter,
+  Roboto_Mono,
+} from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
+// My fonts
+
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+});
+
+const zenDots = Zen_Dots({
+  variable: "--font-zen-dots",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const redRose = Red_Rose({
+  weight: ["300", "400", "700"],
+  subsets: ["latin"],
+  variable: "--font-red-rose",
+  // display: 'swap',
+  // You can specify weights if needed, e.g., weight: ['300', '400', '700']
+});
+
+const architectsDaughter = Architects_Daughter({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-architects-daughter",
+});
+
+// My fonts ends here
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -25,9 +63,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${redRose.variable} ${zenDots.variable} ${architectsDaughter.variable} ${robotoMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
