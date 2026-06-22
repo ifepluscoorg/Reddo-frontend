@@ -15,10 +15,10 @@ export default function GallerySection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col  justify-between mb-8 gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-highlight mb-2">
-              Inside Reddo
+            <p className="text-xs font-bold uppercase tracking-widest text-d-accent mb-2 font-mono">
+              Book a tour
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-mono">
               Come see it{" "}
               <span
                 style={{ fontFamily: "'Caveat', cursive" }}
@@ -28,7 +28,7 @@ export default function GallerySection() {
               </span>
             </h2>
           </div>
-          <p className="text-sm text-muted-foreground ">
+          <p className="text-sm text-muted-foreground font-mono">
             Take a walk through our space — every corner is designed to inspire.
           </p>
         </div>

@@ -1,4 +1,6 @@
 import { Star } from "lucide-react";
+import Image from "next/image";
+import SocialBtn from "./socialBtn";
 
 const TESTIMONIALS = [
   {
@@ -36,7 +38,7 @@ function TestimonialCard({
     <div className="bg-card rounded-2xl p-5 shadow-sm flex flex-col gap-3">
       <div className="flex gap-0.5">
         {[1, 2, 3, 4, 5].map((i) => (
-          <Star key={i} size={12} className="fill-highlight text-highlight" />
+          <Star key={i} size={12} className="fill-d-accent text-d-accent" />
         ))}
       </div>
       <p className="text-xs text-muted-foreground leading-relaxed flex-1">
@@ -55,13 +57,15 @@ export default function TestimonialsSection() {
     <section className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-highlight mb-2">
+          <p className="text-xs font-bold uppercase tracking-widest text-d-accent mb-2 font-mono">
             Member Stories
           </p>
-          <h2 className="text-3xl font-bold text-foreground">What they say</h2>
+          <h2 className="text-3xl font-bold text-foreground font-mono">
+            What they say
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
           {TESTIMONIALS.map((t) => (
             <TestimonialCard
               key={t.handle}
@@ -72,15 +76,15 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-3 mt-8">
-          <button className="px-5 py-2.5 bg-highlight text-white font-semibold rounded-full text-sm hover:bg-highlight/90 transition-colors flex items-center gap-2">
-            <span className="w-4 h-4 bg-white/30 rounded-full inline-block" />
-            Follow on Substack
-          </button>
-          <button className="px-5 py-2.5 bg-highlight text-white font-semibold rounded-full text-sm hover:bg-highlight/90 transition-colors flex items-center gap-2">
-            {/* <Instagram size={14} /> */}
-            Follow on Instagram
-          </button>
+        <div className="flex flex-wrap gap-3 mt-8 font-mono">
+          <SocialBtn
+            icon="/images/icons/substack.png"
+            label="Follow on Substack"
+          />
+          <SocialBtn
+            icon="/images/icons/instagram.png"
+            label="Follow on Instagram"
+          />
         </div>
       </div>
     </section>

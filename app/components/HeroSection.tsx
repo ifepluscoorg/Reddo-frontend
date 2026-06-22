@@ -1,7 +1,10 @@
 // import { useRef } from "react";
+import Image from "next/image";
 import { MapPin } from "lucide-react";
 import BlueMascot from "./BlueMascot";
 import { CountdownSection } from "./CountdownSection";
+import { fadeUp } from "./motion";
+import { MotionDiv } from "./motion";
 // import Countdown from "./Countdown";
 
 export default function HeroSection() {
@@ -14,7 +17,7 @@ export default function HeroSection() {
           {/* Left */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
-              <MapPin size={14} className="text-highlight" />
+              <MapPin size={14} className="text-d-accent" />
               <span>Victoria Island, Lagos</span>
             </div>
 
@@ -43,8 +46,24 @@ export default function HeroSection() {
           {/* Right — mascot + floating stats */}
           <div className="relative flex items-center justify-center">
             <div className="relative">
-              <BlueMascot className="w-56 h-auto drop-shadow-xl" />
-              <div className="absolute -top-4 -right-6 bg-highlight text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg rotate-6">
+              <video
+                className="inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/images/reddo-mascot.png"
+              >
+                <source src="/videos/Reddo-mascot-vid.mp4" type="video/mp4" />
+              </video>
+              {/* <Image
+                src="/images/reddo-mascot.png"
+                alt="Hero-mascot"
+                width={224}
+                height={224}
+              /> */}
+              {/* <BlueMascot className="w-56 h-auto drop-shadow-xl" /> */}
+              <div className="absolute -top-4 -right-6 bg-d-accent text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg rotate-6">
                 New Opening!
               </div>
               <div className="absolute bottom-10 -left-10 bg-card rounded-xl px-4 py-3 shadow-lg">
@@ -55,7 +74,7 @@ export default function HeroSection() {
                 <p className="text-xs text-muted-foreground">
                   Spaces Available
                 </p>
-                <p className="text-xl font-bold text-primary">48</p>
+                <p className="text-xl font-bold text-primary">300</p>
               </div>
             </div>
           </div>

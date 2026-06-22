@@ -10,23 +10,24 @@ import {
   //   Linkedin,
   //   Youtube,
 } from "lucide-react";
+import Image from "next/image";
 
 // const SOCIAL_ICONS = [Instagram, Twitter, Facebook, Linkedin, Youtube];
 
 export default function Footer() {
   return (
-    <footer className="bg-easer1 text-black py-16 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-easer1 text-black py-16 px-4 sm:px-6 lg:px-8 font-mono">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-base">
-                  R
-                </span>
-              </div>
-              <span className="font-bold text-foreground text-xl">Reddo</span>
+              <Image
+                src="/images/logo.png"
+                alt="Reddo Logo"
+                width={120}
+                height={40}
+              />
             </div>
             <p className="text-foreground text-sm leading-relaxed mb-5">
               Nigeria&apos;s most inspiring coworking and productivity space —

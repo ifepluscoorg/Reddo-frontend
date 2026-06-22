@@ -51,11 +51,11 @@ const allPartners = [...partners, ...partners];
 
 export default function CommunitySection() {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-easer1">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-easer1 font-mono">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-highlight mb-2">
+            <p className="text-xs font-bold uppercase tracking-widest text-d-accent mb-2">
               Community
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">

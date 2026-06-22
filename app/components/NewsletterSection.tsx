@@ -6,7 +6,7 @@ export default function NewsletterSection() {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-accent">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-accent font-mono">
       <div className="max-w-2xl mx-auto text-center">
         <div className="text-center mb-4">
           {/* <p className="text-xs font-bold uppercase tracking-widest text-highlight mb-2">

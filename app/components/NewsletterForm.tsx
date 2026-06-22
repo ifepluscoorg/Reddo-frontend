@@ -20,7 +20,7 @@ export default function NewsletterForm() {
         />
         <button
           type="submit"
-          className="px-7 py-3.5 bg-highlight text-white font-semibold rounded-full hover:bg-highlight/90 transition-colors text-sm whitespace-nowrap shadow-lg"
+          className="px-7 py-3.5 bg-d-accent text-white font-semibold rounded-full hover:bg-d-accent/90 transition-colors text-sm whitespace-nowrap shadow-lg"
         >
           Subscribe Free
         </button>

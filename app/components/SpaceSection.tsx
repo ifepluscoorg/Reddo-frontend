@@ -5,14 +5,22 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, LayoutGrid, Image } from "lucide-react";
 
 const spaces = [
-  { number: "01.", name: "Brew Cafe" },
-  { number: "02.", name: "Gym" },
-  { number: "03.", name: "Coworking Space" },
-  { number: "04.", name: "Meeting Rooms" },
-  { number: "05.", name: "Private Offices" },
+  { number: "01.", name: "Brew Cafe", bg: "/images/brew cafe.png" },
+  { number: "02.", name: "Gym", bg: "/images/gym-space.png" },
+  { number: "03.", name: "Coworking Space", bg: "/images/executive suite.png" },
+  { number: "04.", name: "Meeting Rooms", bg: "/images/meeting-rooms.png" },
+  { number: "05.", name: "Private Offices", bg: "/images/private-offices.png" },
 ];
 
-function FolderCard({ number, name }: { number: string; name: string }) {
+function FolderCard({
+  number,
+  name,
+  bg,
+}: {
+  number: string;
+  name: string;
+  bg: string;
+}) {
   return (
     <div className="folder-card-wrapper flex-shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] px-1.5">
       <div
@@ -22,24 +30,32 @@ function FolderCard({ number, name }: { number: string; name: string }) {
         }}
       >
         {/* Folder tab */}
-        <div
+        {/* <div
           className="absolute -top-[18px] left-6 h-[18px] w-[60px] rounded-t-lg"
           style={{
             background: "rgba(245, 240, 228, 0.85)",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
           }}
-        />
+        /> */}
 
-        {/* Card body */}
+        {/* Card body — bg image + frosted overlay via layered backgrounds */}
         <div
-          className="relative rounded-2xl rounded-tl-none p-6 pt-8 pb-8 flex flex-col gap-6"
+          className="relative rounded-xl p-6 pt-8 pb-8 flex flex-col gap-6"
           style={{
-            background: "rgba(245, 240, 228, 0.72)",
+            backgroundImage: `
+              linear-gradient(
+                rgba(245, 240, 228, 0.1),
+                rgba(245, 240, 228, 0.80)
+              ),
+              url('${bg}')
+            `,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
             border: "1px solid rgba(255,255,255,0.55)",
-            minHeight: "160px",
+            minHeight: "200px",
           }}
         >
           {/* Icon placeholder */}
@@ -52,7 +68,7 @@ function FolderCard({ number, name }: { number: string; name: string }) {
           {/* Number + Name */}
           <div className="mt-auto">
             <p className="font-mono text-gray-700 text-sm mb-1">{number}</p>
-            <p className="font-mono text-base" style={{ color: "#4bbfdb" }}>
+            <p className="font-mono text-base" style={{ color: "black" }}>
               {name}
             </p>
           </div>
@@ -105,7 +121,6 @@ export default function SpacesSection() {
 
       {/* Carousel */}
       <div className="max-w-5xl mx-auto relative">
-        {/* Prev button */}
         <button
           onClick={scrollPrev}
           className="absolute -left-5 sm:-left-6 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full text-white shadow-lg transition-opacity hover:opacity-80"
@@ -123,7 +138,6 @@ export default function SpacesSection() {
           </div>
         </div>
 
-        {/* Next button */}
         <button
           onClick={scrollNext}
           className="absolute -right-5 sm:-right-6 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full text-white shadow-lg transition-opacity hover:opacity-80"

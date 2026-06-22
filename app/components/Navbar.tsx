@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const NAV_LINKS = ["Locations", "Virtual Tour", "Reddo Living", "Blog"];
@@ -12,7 +13,13 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <Image
+            src="/images/logo.png"
+            alt="Reddo Logo"
+            width={120}
+            height={40}
+          />
+          {/* <div className="flex items-center gap-2">
             <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">
                 R
@@ -21,7 +28,7 @@ export default function Navbar() {
             <span className="font-bold text-foreground text-lg tracking-tight">
               Reddo
             </span>
-          </div>
+          </div> */}
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-7">
