@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { Zen_Dots } from "next/font/google";
 // import SmallMascot from "./SmallMascot";
+
+const zenDots = Zen_Dots({
+  variable: "--font-zen-dots",
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function BookTourForm() {
   const [name, setName] = useState("");
@@ -13,7 +20,9 @@ export default function BookTourForm() {
     <section className="py-2 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-6xl mx-auto">
         {/* Form */}
-        <div className=" rounded-xl p-8 max-w-lg mx-auto bg-accent">
+        <div
+          className={`rounded-xl p-8 max-w-lg mx-auto bg-accent ${zenDots.className}`}
+        >
           <h3 className="text-xl font-bold text-foreground mb-6">
             Book Your Tour
           </h3>

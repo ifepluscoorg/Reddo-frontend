@@ -1,11 +1,28 @@
+"use client";
+
 // import { useRef } from "react";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import BlueMascot from "./BlueMascot";
 import { CountdownSection } from "./CountdownSection";
-import { fadeUp } from "./motion";
-import { MotionDiv } from "./motion";
+import { Zen_Dots, Red_Rose, Architects_Daughter } from "next/font/google";
 // import Countdown from "./Countdown";
+
+const zenDots = Zen_Dots({
+  variable: "--font-zen-dots",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const redRose = Red_Rose({
+  weight: ["300", "400", "700"],
+  subsets: ["latin"],
+});
+
+const architectsDaughter = Architects_Daughter({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function HeroSection() {
   // const targetMs =
@@ -16,26 +33,32 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left */}
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
+            <div
+              className={`flex items-center gap-2 text-sm text-muted-foreground font-medium uppercase ${architectsDaughter.className}`}
+            >
               <MapPin size={14} className="text-d-accent" />
               <span>Victoria Island, Lagos</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-6xl font-bold text-foreground leading-tight">
+            <h1
+              className={`text-4xl sm:text-6xl lg:text-6xl font-bold text-foreground leading-tight ${redRose.className}`}
+            >
               Fueling Creative Minds,{" "}
               <span className="text-primary">Boosting</span> Productivity
             </h1>
 
-            <p className="text-muted-foreground text-base leading-relaxed max-w-md ">
+            <p
+              className={`text-muted-foreground text-base leading-relaxed max-w-md ${architectsDaughter.className}`}
+            >
               Premium coworking spaces, private offices, think tank suites and
               event halls for bold minds and growing teams.
             </p>
 
-            <div className="flex flex-wrap gap-3">
-              <button className="px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-colors text-sm shadow-md">
+            <div className={`flex flex-wrap gap-6 ${zenDots.className}`}>
+              <button className="hidden md:block px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm hover:bg-accent/80 transition-colors shadow-[5px_4px_0px_#2AABE226]">
                 Book Space
               </button>
-              <button className="px-6 py-3 border-2 border-foreground text-foreground font-semibold rounded-full hover:bg-foreground hover:text-white transition-colors text-sm">
+              <button className="px-6 py-3 border-2 border-accent text-foreground font-semibold rounded-sm hover:bg-accent hover:text-d-accent transition-colors text-sm shadow-sm">
                 Virtual Tour
               </button>
             </div>

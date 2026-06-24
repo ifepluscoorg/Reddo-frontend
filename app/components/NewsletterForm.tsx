@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Zen_Dots } from "next/font/google";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -8,7 +9,7 @@ export default function NewsletterForm() {
   return (
     <div>
       <form
-        className="flex flex-col sm:flex-row gap-3"
+        className={`flex flex-col sm:flex-row gap-3`}
         onSubmit={(e) => e.preventDefault()}
       >
         <input

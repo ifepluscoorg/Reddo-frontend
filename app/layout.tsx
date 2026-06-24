@@ -8,6 +8,8 @@ import {
   Roboto_Mono,
 } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -28,6 +30,7 @@ const zenDots = Zen_Dots({
   variable: "--font-zen-dots",
   weight: "400",
   subsets: ["latin"],
+  // src: "../public/fonts/ZenDots-Regular.ttf",
 });
 
 const redRose = Red_Rose({
@@ -45,10 +48,6 @@ const architectsDaughter = Architects_Daughter({
 });
 
 // My fonts ends here
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Coworking Space in VI | Flexible Workspaces & Meeting Rooms",
@@ -132,7 +131,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${redRose.variable} ${zenDots.variable} ${architectsDaughter.variable} ${robotoMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${redRose.variable} ${zenDots.variable} ${architectsDaughter.variable} ${robotoMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
         <Navbar />

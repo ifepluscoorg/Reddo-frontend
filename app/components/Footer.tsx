@@ -30,7 +30,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-foreground text-sm leading-relaxed mb-5">
-              Nigeria&apos;s most inspiring coworking and productivity space —
+              Nigeria&apos;s most inspiring coworking and productivity space,
               built for the bold.
             </p>
             {/* <div className="flex gap-3">

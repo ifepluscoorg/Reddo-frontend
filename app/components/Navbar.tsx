@@ -2,14 +2,23 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Zen_Dots } from "next/font/google";
 
 const NAV_LINKS = ["Locations", "Virtual Tour", "Reddo Living", "Blog"];
+
+const zenDots = Zen_Dots({
+  variable: "--font-zen-dots",
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-card/90 backdrop-blur-md shadow-sm">
+    <nav
+      className={`sticky top-0 z-50 bg-card/90 backdrop-blur-md shadow-sm ${zenDots.className}`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -45,7 +54,7 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
-            <button className="hidden md:block px-5 py-2 bg-d-accent text-white text-sm font-semibold rounded-full hover:bg-d-accent/80 transition-colors">
+            <button className="hidden md:block px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm hover:bg-accent/80 transition-colors shadow-[5px_4px_0px_#2AABE226]">
               Book Space
             </button>
             <button
@@ -72,7 +81,7 @@ export default function Navbar() {
                 {link}
               </a>
             ))}
-            <button className="mt-2 px-5 py-2 bg-d-accent text-white text-sm font-semibold rounded-full w-fit">
+            <button className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
               Book Space
             </button>
           </div>
