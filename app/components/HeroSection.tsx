@@ -55,7 +55,7 @@ export default function HeroSection() {
             </p>
 
             <div className={`flex flex-wrap gap-6 ${zenDots.className}`}>
-              <button className="hidden md:block px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm hover:bg-accent/80 transition-colors shadow-[5px_4px_0px_#2AABE226]">
+              <button className="px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm hover:bg-accent/80 transition-colors shadow-[5px_4px_0px_#2AABE226]">
                 Book Space
               </button>
               <button className="px-6 py-3 border-2 border-accent text-foreground font-semibold rounded-sm hover:bg-accent hover:text-d-accent transition-colors text-sm shadow-sm">

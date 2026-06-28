@@ -6,6 +6,7 @@ import {
   Zen_Dots,
   Architects_Daughter,
   Roboto_Mono,
+  inter,
 } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
@@ -26,7 +27,7 @@ const robotoMono = Roboto_Mono({
   subsets: ["latin"],
 });
 
-const zenDots = Zen_Dots({
+export const zenDots = Zen_Dots({
   variable: "--font-zen-dots",
   weight: "400",
   subsets: ["latin"],
