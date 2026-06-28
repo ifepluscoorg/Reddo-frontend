@@ -11,7 +11,7 @@ export default function GymPage() {
   const locationName = "PL8T 97 Ahmadu Bello Way";
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="min-h-screen bg-white">
         <div className="max-w-4xl mx-auto px-6 pt-12 pb-16">
           {/* Title */}
