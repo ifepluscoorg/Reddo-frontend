@@ -6,10 +6,8 @@ import {
   Zen_Dots,
   Architects_Daughter,
   Roboto_Mono,
-  inter,
 } from "next/font/google";
 import "./globals.css";
-import localFont from "next/font/local";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
