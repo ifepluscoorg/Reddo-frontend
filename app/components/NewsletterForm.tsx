@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zen_Dots } from "next/font/google";
+
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
