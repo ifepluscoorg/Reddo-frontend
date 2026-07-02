@@ -102,7 +102,7 @@ export default function BookSpaceClient({
         });
         if (cancelled) return;
         setSpaces(workspaces.map(mapWorkspaceToSpaceItem));
-         toast.success("Filter successful", {
+         toast.success("Refresh successful", {
          position : "top-right"
          });
         setOccupiedIds(
