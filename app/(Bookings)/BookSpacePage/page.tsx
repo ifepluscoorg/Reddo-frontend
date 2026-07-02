@@ -424,7 +424,7 @@ export default function BookSpacePage() {
     <div className="min-h-screen bg-white">
       {/* ── Hero ── */}
       <section className="px-6 pt-8 pb-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <p className="text-xs font-semibold tracking-widest text-sky-500 mb-2">
             FIND . FILTER . BOOK
           </p>
@@ -607,7 +607,7 @@ export default function BookSpacePage() {
             paddingRight: selectedSpace ? "calc(1.5rem + 400px)" : "1.5rem",
           }}
         >
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <p className="text-xs text-gray-400 mb-4 font-medium">
               {filteredSpaces.length} space
               {filteredSpaces.length !== 1 ? "s" : ""} found
