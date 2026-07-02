@@ -11,6 +11,11 @@ import "../globals.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SessionProviderWrapper from "../components/SessionProviderWrapper";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../lib/auth";
+import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -122,21 +127,27 @@ export const metadata: Metadata = {
   // },
 };
 
-export default function AuthLayout({
+
+export default async function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+   const session = await getServerSession(authOptions);
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${redRose.variable} ${zenDots.variable} ${architectsDaughter.variable} ${robotoMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
+      <NextTopLoader color="#1BA3DC" height={3} showSpinner={false} shadow={false} />
+      <SessionProviderWrapper session={session}>
         <Navbar />
         {children}
         {/* <Footer /> */}
-      </body>
+        <Toaster />
+      </SessionProviderWrapper>
+     </body>
     </html>
   );
 }

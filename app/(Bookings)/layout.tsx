@@ -11,6 +11,11 @@ import "../globals.css";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import NextTopLoader from "nextjs-toploader";
+import SessionProviderWrapper from "../components/SessionProviderWrapper";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../lib/auth";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -122,20 +127,25 @@ export const metadata: Metadata = {
   // },
 };
 
-export default function BookingLayout({
+export default async function BookingLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authOptions);
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${redRose.variable} ${zenDots.variable} ${architectsDaughter.variable} ${robotoMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
-        {/* <Navbar /> */}
+      <NextTopLoader color="#1BA3DC" height={3} showSpinner={false} shadow={false} />
+      <SessionProviderWrapper session={session}>
+        <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
+        <Toaster />
+      </SessionProviderWrapper>
       </body>
     </html>
   );

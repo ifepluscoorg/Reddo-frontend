@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Zen_Dots } from "next/font/google";
-import { useSession } from "next-auth/react";
+import { useSession , signOut} from "next-auth/react";
 import Link from "next/link";
 
 const NAV_LINKS = [ "Virtual Tour","Workspaces", "Reddo Living", "Blog"];
@@ -58,12 +58,14 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
              {session?.user ? 
             (
-             <Link href="BookSpacePage" className=" px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
-              Book Space
-            </Link>
+             <button  onClick={()=> signOut({
+                 callbackUrl: '/'
+             })} className=" px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+              Logout
+            </button>
             ) : (
-            <Link href="/Login" className=" px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
-              Login
+            <Link href="/Signup" className=" px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+              SignUp
             </Link>
             )
             }
@@ -93,12 +95,14 @@ export default function Navbar() {
             ))}
             {session?.user ? 
             (
-             <Link href="BookSpacePage" className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
-              Book Space
-            </Link>
+             <button onClick={()=> signOut({
+                 callbackUrl: '/'
+             })} className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+              Logout
+            </button>
             ) : (
-            <Link href="/Login" className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
-              Login
+            <Link href="/Signup" className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+              SignUp
             </Link>
             )
             }

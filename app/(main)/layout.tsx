@@ -6,7 +6,6 @@ import {
   Zen_Dots,
   Architects_Daughter,
   Roboto_Mono, Inter } from "next/font/google";
-import "./globals.css";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
@@ -19,7 +18,7 @@ import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
-import "../globals.css";
+import "@/app/globals.css";
 
 
 
