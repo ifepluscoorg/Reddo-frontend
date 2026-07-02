@@ -7,7 +7,7 @@ const partners = [
   {
     id: "partner-1",
     label: "Partner 1",
-    src: "/images/indrive.png",
+    src: "/images/Indrive.png",
   },
   {
     id: "partner-2",
@@ -117,7 +117,7 @@ export default function CommunitySection() {
               {allPartners.map((partner, i) => (
                 <div
                   key={`${partner.id}-${i}`}
-                  className="flex-shrink-0 flex items-center px-8 py-3 border-gray-200"
+                  className="shrink-0 flex items-center px-8 py-3 border-gray-200"
                 >
                   <Image
                     src={partner.src}

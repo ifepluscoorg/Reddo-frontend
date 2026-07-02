@@ -22,7 +22,7 @@ function FolderCard({
   bg: string;
 }) {
   return (
-    <div className="folder-card-wrapper flex-shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] px-1.5">
+    <div className="folder-card-wrapper shrink-0 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)] px-1.5">
       <div
         className="relative rounded-2xl overflow-visible"
         style={{

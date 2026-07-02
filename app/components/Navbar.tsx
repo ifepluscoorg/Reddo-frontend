@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Zen_Dots } from "next/font/google";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 
-const NAV_LINKS = ["Locations", "Virtual Tour", "Reddo Living", "Blog"];
+const NAV_LINKS = [ "Virtual Tour","Workspaces", "Reddo Living", "Blog"];
 
 const zenDots = Zen_Dots({
   variable: "--font-zen-dots",
@@ -14,12 +16,12 @@ const zenDots = Zen_Dots({
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { data : session } = useSession();
   return (
     <nav
       className={`sticky top-0 z-50 bg-card/90 backdrop-blur-md shadow-sm ${zenDots.className}`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto max-[1100px]:px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Image
@@ -54,9 +56,17 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
-            <button className="hidden md:block px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm hover:bg-accent/80 transition-colors shadow-[5px_4px_0px_#2AABE226]">
+             {session?.user ? 
+            (
+             <Link href="BookSpacePage" className=" px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
               Book Space
-            </button>
+            </Link>
+            ) : (
+            <Link href="/Login" className=" px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+              Login
+            </Link>
+            )
+            }
             <button
               className="md:hidden p-2 rounded-lg text-foreground"
               onClick={() => setMenuOpen((p) => !p)}
@@ -81,9 +91,18 @@ export default function Navbar() {
                 {link}
               </a>
             ))}
-            <button className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+            {session?.user ? 
+            (
+             <Link href="BookSpacePage" className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
               Book Space
-            </button>
+            </Link>
+            ) : (
+            <Link href="/Login" className="mt-2 px-5 py-2 bg-accent text-d-accent text-sm font-semibold rounded-sm w-fit shadow-[5px_4px_0px_#2AABE226]">
+              Login
+            </Link>
+            )
+            }
+        
           </div>
         )}
       </div>
