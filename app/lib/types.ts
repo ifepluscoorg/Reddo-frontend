@@ -79,6 +79,19 @@ export interface BackendWorkspace {
   images: BackendWorkspaceImage[];
   is_available: boolean;
 }
+// ─── Blog ─────────────────────────────────────────────────────────────────────
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  tag: string;
+  date: string;
+  author: string;
+  readTime: string;
+  featured: boolean;
+  content: string[];  // array of paragraphs
+}
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
