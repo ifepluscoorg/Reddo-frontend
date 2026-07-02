@@ -6,6 +6,7 @@ import type {
   CafeMenuItem,
   NavItem,
   NavPage,
+  BackendCategory,
 } from "./types";
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -34,6 +35,25 @@ export const SPACE_CATEGORIES: string[] = [
 ];
 
 // ══════════════════════════════════════════════════════════════════════════════
+// FRONTEND ↔ BACKEND CATEGORY MAPPING
+// reddo-backend's category enum doesn't match the frontend labels above,
+// so requests/responses are translated at the boundary.
+// ══════════════════════════════════════════════════════════════════════════════
+export const CATEGORY_TO_BACKEND: Record<string, BackendCategory> = {
+  Meeting: "Meeting",
+  Workstation: "Hot Desk",
+  "Private Office": "Private Office",
+  "Executive Suite": "Training Room",
+};
+
+export const BACKEND_TO_CATEGORY: Record<BackendCategory, string> = {
+  Meeting: "Meeting",
+  "Hot Desk": "Workstation",
+  "Private Office": "Private Office",
+  "Training Room": "Executive Suite",
+};
+
+// ══════════════════════════════════════════════════════════════════════════════
 // NAVIGATION ITEMS
 // Add new pages here to extend the top nav.
 // ══════════════════════════════════════════════════════════════════════════════
@@ -44,14 +64,9 @@ export const NAV_ITEMS: NavItem[] = [
 ] satisfies NavItem[];
 
 // ══════════════════════════════════════════════════════════════════════════════
-// DEMO STATE SEEDS (replace with real backend values)
+// DEMO STATE SEED
+// "New" badge has no backend equivalent — stays a frontend-only concept.
 // ══════════════════════════════════════════════════════════════════════════════
-export const INITIAL_OCCUPIED = new Set<string>([
-  "breakthrough",
-  "wisdom",
-  "gift",
-  "lb-creative-suite",
-]);
 export const INITIAL_NEW = new Set<string>(["zion", "lb-innovation-lab"]);
 
 // ══════════════════════════════════════════════════════════════════════════════

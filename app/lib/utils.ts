@@ -1,3 +1,6 @@
+import type { BackendWorkspace, SpaceItem } from "./types";
+import { BACKEND_TO_CATEGORY } from "./data";
+
 // ─── Gradient palette for placeholder card images ────────────────────────────
 // Each gradient simulates a room photo tone. Add more entries to vary them.
 
@@ -44,3 +47,24 @@ export const START_TIMES = [
   "12:00 PM",
   "2:00 PM",
 ];
+
+// ─── Backend workspace mapping ─────────────────────────────────────────────────
+
+/** Maps a reddo-backend Workspace into the frontend's SpaceItem shape. */
+export function mapWorkspaceToSpaceItem(w: BackendWorkspace): SpaceItem {
+  const firstImage = [...w.images].sort((a, b) => a.order - b.order)[0];
+
+  return {
+    id: w.id,
+    name: w.name,
+    category: BACKEND_TO_CATEGORY[w.category] ?? w.category,
+    capacity: w.capacity,
+    amenities: w.amenities,
+    tiers: w.tiers.map((t) => ({
+      type: t.type,
+      capacity: t.capacity || undefined,
+      price: fmt(Math.round(parseFloat(t.price))),
+    })),
+    photo: firstImage?.image,
+  };
+}
