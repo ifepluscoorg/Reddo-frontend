@@ -46,6 +46,20 @@ export interface CafeMenuItem {
   categoryId: string;
 }
 
+// ─── Blog ─────────────────────────────────────────────────────────────────────
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  tag: string;
+  date: string;
+  author: string;
+  readTime: string;
+  featured: boolean;
+  content: string[];  // array of paragraphs
+}
+
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
 export type NavPage = "workspace" | "gym" | "brew-cafe";
