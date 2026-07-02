@@ -5,19 +5,12 @@ import {
   Red_Rose,
   Zen_Dots,
   Architects_Daughter,
-  Roboto_Mono, Inter } from "next/font/google";
-import "./globals.css";
+  Roboto_Mono,
+} from "next/font/google";
+import "../globals.css";
 
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/lib/auth";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import SessionProviderWrapper from "./components/SessionProviderWrapper";
-import { Toaster } from "@/components/ui/sonner";
-import { cn } from "@/lib/utils";
-import NextTopLoader from "nextjs-toploader";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -129,26 +122,20 @@ export const metadata: Metadata = {
   // },
 };
 
-export default async function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions);
-
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, redRose.variable, zenDots.variable, architectsDaughter.variable, robotoMono.variable, "font-sans", inter.variable)}
+      className={`${geistSans.variable} ${redRose.variable} ${zenDots.variable} ${architectsDaughter.variable} ${robotoMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
-        <NextTopLoader color="#1BA3DC" height={3} showSpinner={false} shadow={false} />
-        <SessionProviderWrapper session={session}>
-          <Navbar />
-          {children}
-          <Footer />
-          <Toaster />
-        </SessionProviderWrapper>
+        <Navbar />
+        {children}
+        {/* <Footer /> */}
       </body>
     </html>
   );

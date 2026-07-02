@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { X, Users, Calendar, Plus, Minus } from "lucide-react";
-import { fmt, parsePx, START_TIMES } from "../../lib/utils";
-import type { SpaceItem } from "../../lib/types";
+import { fmt, parsePx, START_TIMES } from "../../../lib/utils";
+import type { SpaceItem } from "../../../lib/types";
 
 interface BookingPanelProps {
   space: SpaceItem;

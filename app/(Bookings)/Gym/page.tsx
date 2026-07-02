@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
-import { GYM_PLANS } from "../lib/data";
-import Navbar from "../components/Navbar-second";
+import { GYM_PLANS } from "../../lib/data";
+import Navbar from "../../components/Navbar-second";
 
 // interface GymPageProps {
 //   locationName: string;
