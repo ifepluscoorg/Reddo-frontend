@@ -9,7 +9,7 @@ import {
 } from "next/font/google";
 import "../globals.css";
 
-import Navbar from "../components/Navbar";
+import NavbarSecond from "../components/Navbar-second";
 import Footer from "../components/Footer";
 import NextTopLoader from "nextjs-toploader";
 import SessionProviderWrapper from "../components/SessionProviderWrapper";
@@ -141,7 +141,7 @@ export default async function BookingLayout({
       <body className="min-h-full flex flex-col bg-white">
       <NextTopLoader color="#1BA3DC" height={3} showSpinner={false} shadow={false} />
       <SessionProviderWrapper session={session}>
-        <Navbar />
+        <NavbarSecond />
         {children}
         {/* <Footer /> */}
         <Toaster />
