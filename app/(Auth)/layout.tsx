@@ -7,10 +7,10 @@ import {
   Architects_Daughter,
   Roboto_Mono,
 } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
   // },
 };
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -135,7 +135,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white">
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

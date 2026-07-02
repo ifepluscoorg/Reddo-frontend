@@ -337,8 +337,8 @@ import {
   SPACE_CATEGORIES,
   INITIAL_OCCUPIED,
   INITIAL_NEW,
-} from "../lib/data";
-import type { SpaceItem } from "../lib/types";
+} from "../../lib/data";
+import type { SpaceItem } from "../../lib/types";
 
 export default function BookSpacePage() {
   // ── Occupied / Favourite / New state (previously passed as props) ──

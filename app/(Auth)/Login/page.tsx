@@ -3,16 +3,14 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { User, Mail, Eye, EyeOff } from "lucide-react";
-import { loginUser, saveTokens } from "../lib/auth";
+import { Mail, Eye, EyeOff } from "lucide-react";
+import { loginUser, saveTokens } from "../../lib/auth";
 
-export default function SignupPage() {
+export default function LoginPage() {
   const router = useRouter();
 
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -20,23 +18,16 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      return;
+    setLoading(true);
+    try {
+      const data = await loginUser({ email, password });
+      saveTokens(data.access, data.refresh);
+      router.push("/BookSpace");
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-
-    // setLoading(true);
-    // try {
-    //   await signupUser({ name, email, password, confirm_password: confirmPassword });
-    //   const tokens = await loginUser({ email, password });
-    //   saveTokens(tokens.access, tokens.refresh);
-    //   router.push("/BookSpace");
-    // } catch (err: any) {
-    //   setError(err.message);
-    // } finally {
-    //   setLoading(false);
-    // }
   };
 
   return (
@@ -51,7 +42,7 @@ export default function SignupPage() {
     >
       <div className="flex-1 flex items-center justify-center px-4 py-20">
         <div
-          className="w-full max-w-lg rounded-2xl px-10 py-12"
+          className="w-full max-w-lg rounded-sm px-10 py-12"
           style={{
             background: "rgba(255, 255, 255, 0.15)",
             backdropFilter: "blur(18px)",
@@ -65,7 +56,7 @@ export default function SignupPage() {
             className="text-center text-4xl font-bold text-white mb-8 tracking-widest"
             style={{ fontFamily: "var(--font-zen-dots), sans-serif" }}
           >
-            SIGN UP
+            LOGIN
           </h1>
 
           {/* Error */}
@@ -77,21 +68,6 @@ export default function SignupPage() {
 
           {/* Form */}
           <div className="flex flex-col gap-5">
-            {/* Name */}
-            <div className="relative">
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Name/Company Name"
-                className="w-full bg-transparent border-b-2 border-d-acccent/70 text-d-accent placeholder-d-accent/70 text-sm py-3 pr-10 focus:outline-none focus:border-d-accent transition "
-              />
-              <User
-                size={18}
-                className="absolute right-2 top-3 text-black/70"
-              />
-            </div>
-
             {/* Email */}
             <div className="relative">
               <input
@@ -125,41 +101,25 @@ export default function SignupPage() {
               </button>
             </div>
 
-            {/* Confirm Password */}
-            <div className="relative">
-              <input
-                type={showPass ? "text" : "password"}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Confirm Password"
-                className="w-full bg-transparent border-b-2 border-d-acccent/70 text-d-accent placeholder-d-accent/70 text-sm py-3 pr-10 focus:outline-none focus:border-d-accent transition "
-              />
-              <button
-                type="button"
-                onClick={() => setShowPass((v) => !v)}
-                className="absolute right-2 top-3 text-black/70 hover:text-white transition"
-              >
-                {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
-              </button>
-            </div>
-
-            {/* Signup button */}
+            {/* Login button */}
             <button
               onClick={handleSubmit}
               disabled={loading}
               className="w-full py-3 rounded-full text-sm font-semibold transition-all disabled:opacity-60 disabled:cursor-not-allowed mt-2 bg-accent text-d-accent hover:bg-accent/80 transition-colors shadow-[5px_4px_0px_#2AABE226]"
             >
-              {loading ? "Creating account..." : "Signup"}
+              {loading ? "Signing in..." : "Login"}
             </button>
 
-            {/* Login link */}
+            {/* Register link */}
             <div className="flex items-center justify-between text-sm mt-1">
-              <span className="text-d-accent/70">Already have an account?</span>
+              <span className="text-d-accent/70">
+                Don&apos;t have an account?
+              </span>
               <Link
-                href="/Login"
+                href="/Signup"
                 className="text-d-accent font-bold hover:underline"
               >
-                Login
+                Register
               </Link>
             </div>
 

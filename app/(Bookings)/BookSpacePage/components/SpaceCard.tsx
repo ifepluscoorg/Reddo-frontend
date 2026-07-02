@@ -1,9 +1,9 @@
 import { Bookmark, Users, Building2 } from "lucide-react";
 // import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import Image from "next/image";
-import { SPACE_PHOTOS } from "../../lib/data";
-import { placeholderGradient } from "../../lib/utils";
-import type { SpaceItem } from "../../lib/types";
+import { SPACE_PHOTOS } from "../../../lib/data";
+import { placeholderGradient } from "../../../lib/utils";
+import type { SpaceItem } from "../../../lib/types";
 
 interface SpaceCardProps {
   space: SpaceItem;
