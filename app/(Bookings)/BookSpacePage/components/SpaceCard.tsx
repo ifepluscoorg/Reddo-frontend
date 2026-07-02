@@ -26,7 +26,7 @@ export default function SpaceCard({
   onToggleNew,
   onClick,
 }: SpaceCardProps) {
-  const photo = SPACE_PHOTOS[space.id] ?? null;
+  const photo = space.photo ?? SPACE_PHOTOS[space.id] ?? null;
   const cardBg = isNew && !isOccupied ? "#0a2918" : "#0f1a35";
   const gradientTo = isNew && !isOccupied ? "#0a2918" : "#0f1a35";
 

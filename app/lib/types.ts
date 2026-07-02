@@ -13,6 +13,7 @@ export interface SpaceItem {
   capacity: string;
   amenities: string[];
   tiers: PricingTier[];
+  photo?: string;
 }
 
 export interface LocationData {
@@ -46,6 +47,38 @@ export interface CafeMenuItem {
   categoryId: string;
 }
 
+// ─── Backend (reddo-backend) workspace shapes ──────────────────────────────────
+
+export type BackendCategory =
+  | "Hot Desk"
+  | "Meeting"
+  | "Private Office"
+  | "Training Room";
+
+export interface BackendWorkspaceTier {
+  id: number;
+  type: string;
+  capacity: string;
+  price: string;
+  currency: string;
+}
+
+export interface BackendWorkspaceImage {
+  id: string;
+  image: string;
+  order: number;
+}
+
+export interface BackendWorkspace {
+  id: string;
+  name: string;
+  category: BackendCategory;
+  capacity: string;
+  amenities: string[];
+  tiers: BackendWorkspaceTier[];
+  images: BackendWorkspaceImage[];
+  is_available: boolean;
+}
 // ─── Blog ─────────────────────────────────────────────────────────────────────
 
 export interface BlogPost {
