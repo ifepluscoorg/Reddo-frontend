@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
-import { CAFE_CATEGORIES, CAFE_MENU_ITEMS } from "../lib/data";
+import { CAFE_CATEGORIES, CAFE_MENU_ITEMS } from "../../lib/data";
 
 interface BrewCafePageProps {
   locationName: string;
