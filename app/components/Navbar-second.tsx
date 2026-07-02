@@ -18,7 +18,7 @@ export default function NavbarSecond() {
 
   return (
     <nav className="w-full bg-white border-b border-gray-100 px-6 sticky top-0 z-20">
-      <div className="max-w-7xl mx-auto flex items-center h-16">
+      <div className="max-w-6xl mx-auto flex items-center h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center pr-6">
           <Image
